@@ -1,14 +1,14 @@
-from machine import Pin
-import time
+import machine  # import Pin
+import utime
 
-led_board = Pin(25, Pin.OUT)  # LED in board
-led_external = Pin(16, Pin.OUT)  # LED external through a GPIO
+led_board = machine.Pin(25, machine.Pin.OUT)  # LED in board
+led_external = machine.Pin(16, machine.Pin.OUT)  # LED external through a GPIO
 
-led_board(1)  # init LED in board
+led_board(0)  # init LED in board
 led_external(0)  # init LED external
 
 while True:
     led_external(1)
-    time.sleep(2)
+    utime.sleep(1)
     led_external(0)
-    time.sleep(2)
+    utime.sleep(1)
